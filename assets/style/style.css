@@ -11,7 +11,7 @@
     max-height: 15vh;
 }
 
-.card h5
+.card h5[class*="text-secondary"]
 {
     font-style: italic;
 }

@@ -14,4 +14,4 @@ class MoneyService
     }
 }
 
-export let moneyService = new MoneyService();
+export const moneyService = new MoneyService();

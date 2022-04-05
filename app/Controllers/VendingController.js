@@ -49,11 +49,12 @@ export class VendingController
         moneyService.addMoney(amount);
     }
 
-    buyProduct(snackIndex)
+    buySnack(snackId)
     {
-        if(moneyService.addMoney(-1 * ProxyState.snacks[snackIndex].price))
+        const snackIndex = snacksService.getSnackById(snackId);
+        if(ProxyState.snacks[snackIndex].InStock && moneyService.addMoney(-1 * ProxyState.snacks[snackIndex].price) )
         {            
-            snacksService.removeSnack(snackIndex);
+            snacksService.buySnack(snackId);
         }
     }
 }

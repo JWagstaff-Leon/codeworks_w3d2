@@ -1,5 +1,6 @@
 import { Snack } from "../Models/Snack.js";
 import { ProxyState } from "../AppState.js";
+import { generateId } from "../Utils/generateId.js";
 
 // TODO fill in this list
 /*******************************************************************************
@@ -67,20 +68,22 @@ class SnacksService
 {
     constructor()
     {
-        snackList.forEach(v => ProxyState.snacks.push(new Snack(v)));
+        snackList.forEach(v => ProxyState.snacks.push(new Snack(v, generateId())));
         ProxyState.snacks = ProxyState.snacks;
     }
 
-    removeSnack(snackIndex)
+    buySnack(snackId)
     {
-        if(ProxyState.snacks[snackIndex].stock > 0)
-        {
-            ProxyState.snacks[snackIndex].stock -= 1;
-            return true;
-        }
+        const snackIndex = this.getSnackById(snackId);
+        ProxyState.snacks[snackIndex].stock -= 1;
+        ProxyState.snacks = ProxyState.snacks;
+        return true;
+    }
 
-        return false;
+    getSnackById(p_id)
+    {
+        return ProxyState.snacks.findIndex(v => v.id === p_id);
     }
 }
 
-export let snacksService = new SnacksService();
+export const snacksService = new SnacksService();
