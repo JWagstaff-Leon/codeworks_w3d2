@@ -1,0 +1,17 @@
+/* BASIC STYLES HERE */
+
+.card
+{
+    max-height: 30vh;
+}
+
+.card img
+{
+    object-fit: cover;
+    max-height: 15vh;
+}
+
+.card h5
+{
+    font-style: italic;
+}
