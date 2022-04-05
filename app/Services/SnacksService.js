@@ -1,6 +1,7 @@
 import { Snack } from "../Models/Snack.js";
 import { ProxyState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
+import { Pop } from "../Utils/Pop.js";
 
 // TODO fill in this list
 /*******************************************************************************
@@ -89,8 +90,10 @@ class SnacksService
     {
         const selectedSnackIndex = Math.floor(Math.random() * ProxyState.snacks.length);
 
-        ProxyState.snacks[selectedSnackIndex].stock += 1;
+        ProxyState.snacks[selectedSnackIndex].stock += Math.floor(Math.random() * 3.1);
         ProxyState.snacks = ProxyState.snacks;
+
+        Pop.toast(`${ProxyState.snacks[selectedSnackIndex].name} has been restocked`, "warning", "top-end", 8000, true);
     }
 }
 
