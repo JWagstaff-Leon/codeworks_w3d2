@@ -84,6 +84,14 @@ class SnacksService
     {
         return ProxyState.snacks.findIndex(v => v.id === p_id);
     }
+
+    stockRandomSnack()
+    {
+        const selectedSnackIndex = Math.floor(Math.random() * ProxyState.snacks.length);
+
+        ProxyState.snacks[selectedSnackIndex].stock += 1;
+        ProxyState.snacks = ProxyState.snacks;
+    }
 }
 
 export const snacksService = new SnacksService();
