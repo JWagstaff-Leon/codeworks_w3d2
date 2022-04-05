@@ -1,6 +1,7 @@
 import { snacksService } from "../Services/SnacksService.js";
 import { moneyService } from "../Services/MoneyService.js";
 import { ProxyState } from "../AppState.js";
+import { formatMoney } from "../Utils/formatMoney.js";
 
 function _drawSnacks()
 {
@@ -11,26 +12,7 @@ function _drawSnacks()
 
 function _drawMoney()
 {
-    let template = "$";
-
-    template += Math.floor(ProxyState.money).toString();
-    switch(ProxyState.money - Math.floor(ProxyState.money))
-    {
-        case 0:
-            template += ".00"; 
-            break;
-        case 0.25:
-            template += ".25";
-            break;
-        case 0.5:
-            template += ".50";
-            break;
-        case 0.75:
-            template += ".75";
-            break;
-    }
-
-    document.getElementById("money").innerText = template;
+    document.getElementById("money").innerText = "$" + formatMoney(ProxyState.money);
 }
 
 export class VendingController

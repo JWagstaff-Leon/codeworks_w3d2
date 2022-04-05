@@ -1,3 +1,5 @@
+import { formatMoney } from "../Utils/formatMoney.js";
+
 export class Snack
 {
     constructor(data, p_id)
@@ -20,7 +22,7 @@ export class Snack
                 <div class="card-body">
                     <h3 class="card-title">${this.name}</h3>
                     <div class="d-flex justify-content-between">
-                        <h5 class="card-subtitle text-secondary">$${this.price}</h5>
+                        <h5 class="card-subtitle text-secondary">$${formatMoney(this.price)}</h5>
                         <h5 class="card-subtitle text-end ${this.InStock ? "text-secondary" : "text-danger"}">${this.InStock ? this.stock.toString() + " in stock" : "Out of Stock"}</h5>
                     </div>
                 </div>
