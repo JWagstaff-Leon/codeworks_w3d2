@@ -90,7 +90,7 @@ class SnacksService
     {
         const selectedSnackIndex = Math.floor(Math.random() * ProxyState.snacks.length);
 
-        ProxyState.snacks[selectedSnackIndex].stock += Math.floor(Math.random() * 3.1);
+        ProxyState.snacks[selectedSnackIndex].stock += Math.floor(Math.random() * 2.1) + 1;
         ProxyState.snacks = ProxyState.snacks;
 
         Pop.toast(`${ProxyState.snacks[selectedSnackIndex].name} has been restocked`, "warning", "top-end", 8000, true);
