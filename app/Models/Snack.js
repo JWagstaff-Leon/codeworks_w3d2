@@ -17,8 +17,8 @@ export class Snack
     {
         return `
         <div class="col-3 my-2">
-            <div class="card rounded-2" onclick="app.vendingController.buySnack('${this.id}')">
-                <img src="${this.image}" alt="" class="card-img-top rounded-top-2" style="${this.InStock ? "filter: greyscale(70%)" : ""}">
+            <div class="card rounded-2 ${this.InStock ? "bg-light text-dark" : "bg-dark text-light"}" onclick="app.vendingController.buySnack('${this.id}')">
+                <img src="${this.image}" alt="" class="card-img-top rounded-top-2" style="${this.InStock ? "" : "filter: grayscale(70%)"}">
                 <div class="card-body">
                     <h3 class="card-title">${this.name}</h3>
                     <div class="d-flex justify-content-between">
